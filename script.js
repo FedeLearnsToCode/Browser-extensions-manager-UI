@@ -50,6 +50,7 @@ function renderCards(cards) {
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('card-btn');
         removeBtn.textContent = 'Remove';
+        removeBtn.setAttribute('type', 'button');
         removeBtn.setAttribute('aria-label', `Remove the ${item.name} extension`);
         removeBtn.addEventListener('click', () => {
             card.remove();
