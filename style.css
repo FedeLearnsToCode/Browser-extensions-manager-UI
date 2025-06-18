@@ -1,0 +1,356 @@
+/* ========= VARIABLES ========= */
+:root{
+    /* Light theme default */
+    --attribution-link-color: hsl(228, 45%, 44%);
+    --text-color-base: hsl(226, 25%, 17%);
+    --toast-bg: hsl(100, 27%, 72%);
+    --toast-color: hsl(227, 75%, 14%);
+    --bg-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --header-bg: hsl(200, 60%, 99%);
+    --toggle-bg: hsl(0, 0%, 93%);
+    --toggle-bg-hover: hsl(0, 0%, 78%);
+    --h1-color: hsl(227, 75%, 14%);
+
+    --filters-text-color: hsl(225, 23%, 24%);
+    --filters-bg: hsl(200, 60%, 99%);
+    --filters-border: none;
+    --filters-bg-selected: hsl(3, 71%, 56%);
+    --filters-color-selected: hsl(200, 60%, 99%);
+
+    --card-bg: hsl(200, 60%, 99%);
+    --card-border: none;
+    --card-title-color: hsl(225, 23%, 24%);
+    --card-desc-color: hsl(226, 11%, 37%);
+    --border-btn-color: hsl(0, 0%, 78%);
+    --card-btn-bg-hover: hsl(3, 71%, 56%);
+    --card-btn-color-hover: hsl(200, 60%, 99%);
+    --slider-bg: hsl(0, 0%, 78%);
+    --slider-bg-active: hsl(3, 71%, 56%);
+    --toggle-color: hsl(200, 60%, 99%);
+
+    --box-shadow: 0.2rem 0.2rem 0.3rem hsl(217, 61%, 90%);
+
+    --font-family: 'Noto Sans', sans-serif;
+    --fs-base: 1rem;
+    --fs-m: 1.2rem;
+    --fs-l: 1.4rem;
+
+    --fw-normal: 400;
+    --fw-bold: 500;
+    --fw-extrabold: 700;
+}
+
+.dark {
+    --text-color-base: hsl(0, 0%, 93%);
+    --bg-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+    --header-bg: hsl(226, 25%, 17%);
+    --toggle-bg: hsl(225, 23%, 24%);
+    --toggle-bg-hover: hsl(226, 11%, 37%);
+    --h1-color: hsl(0, 0%, 93%);
+
+    --filters-text-color: hsl(0, 0%, 93%);
+    --filters-bg: hsl(225, 23%, 24%);
+    --filters-border: hsl(226, 11%, 37%);
+    --filters-color-selected: hsl(226, 25%, 17%);
+
+    --card-bg: hsl(226, 25%, 17%);
+    --card-border: 1px solid hsl(226, 11%, 37%);
+    --card-title-color: hsl(0, 0%, 93%);
+    --card-desc-color: hsl(0, 0%, 78%);
+
+    --box-shadow: none;
+}
+
+/* ========= RESET and UTILITY ========= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus-visible, input[type='checkbox']:focus-visible + .slider {
+    outline: 2px solid hsl(3, 71%, 56%) !important;
+    outline-offset: 0.2rem;
+    transition: none;
+}
+
+html {
+    font-size: 16px;
+    align-content: start;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ========= STYLE: MOBILE FIRST ========= */
+body {
+    font-family: var(--font-family);
+    font-size: var(--fs-base);
+    color: var(--text-color-base);
+    width: 100%;
+    max-width: 1400px;
+    height: 100vh;
+    margin: 0 auto;
+    align-items: start;
+    background: var(--bg-gradient);
+    padding: 1rem;
+    cursor: default;
+}
+
+header {
+    background-color: var(--header-bg);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-theme {
+    background-color: var(--toggle-bg);
+    border: none;
+    border-radius: 0.7rem;
+    width: 3.5rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.toggle-theme:hover {
+    background-color: var(--toggle-bg-hover);
+}
+
+#toggle-logo {
+    width: 1.7rem;
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0 1rem 0;
+}
+
+h1 {
+    color: var(--h1-color);
+    font-size: 2.2rem;
+    font-weight: var(--fw-extrabold);
+    margin-bottom: 1rem;
+}
+
+/* ========= FILTERS ========= */
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filters button {
+    border: 1px solid var(--filters-border);
+    font-size: var(--fs-m);
+    font-family: var(--font-family);
+    font-weight: var(--fw-bold);
+    color: var(--filters-text-color);
+    background: var(--filters-bg);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.selected{
+    background: var(--filters-bg-selected) !important;
+    color: var(--filters-color-selected) !important;
+    font-weight: var(--fw-extrabold) !important;
+}
+
+/* ========= CARDS ========= */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border: var(--card-border);
+    border-radius: 1rem;
+    height: 12rem;
+    box-shadow: var(--box-shadow);
+}
+
+.card-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.card-info-text h2 {
+    font-size: var(--fs-l);
+    color: var(--card-title-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-info-text p {
+    font-size: var(--fs-base);
+    color: var(--card-desc-color);
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-btn {
+    border: 1px solid var(--border-btn-color);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    color: var(--card-title-color);
+    background: transparent;
+    font-size: var(--fs-base);
+    font-weight: var(--fw-extrabold);
+    cursor: pointer;
+}
+
+.card-btn:hover {
+    background: var(--card-btn-bg-hover);
+    color: var(--card-btn-color-hover);
+}
+
+/* Radio button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: var(--slider-bg);
+    border-radius: 1.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 1.2rem;
+    width: 1.2rem;
+    left: 0.15rem;
+    bottom: 0.15rem;
+    background-color: var(--toggle-color);
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--slider-bg-active);
+}
+
+input:checked + .slider::before {
+    transform: translateX(1.5rem);
+}
+
+/* ========= TOAST ADVICE ========= */
+.toast-wrapper {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 90%;
+    background-color: var(--toast-bg);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    font-size: var(--fs-m);
+    font-weight: var(--fw-extrabold);
+    color: var(--toast-color);
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+}
+
+.toast-wrapper.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ========= ATTRIBUTION ========= */
+.attribution { font-size: 0.7rem; text-align: center; }
+.attribution a { color: var(--attribution-link-color) }
+
+/* ========= RESPONSIVE ========= */
+@media (min-width: 41rem) and (max-width: 62rem) {
+    .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+    }
+    
+    .card {
+        width: 48%;
+    }
+}
+
+@media screen and (min-width: 62rem) {
+    header {
+        margin-top: 2rem;
+        max-height: fit-content;
+    }
+
+    .title-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2rem 0;
+    }
+
+    .filters, h1 {
+        margin: 0;
+    }
+
+    .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+    }
+    .card {
+        width: 32%;
+    }
+}
