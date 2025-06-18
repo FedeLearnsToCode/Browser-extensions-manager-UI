@@ -20,7 +20,7 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live site URL here](https://fedelearnstocode.github.io/Browser-extensions-manager-UI/)
 
 ## My process
 
